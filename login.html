@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and registration system</title>
+    <link rel="stylesheet" href="login.css" type="text/css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-container login">
+            <form action="" method="post">
+                <h2>Login</h2>
+                    <div class="input-group"><input type="email"  id="name1" placeholder="email" required>
+                    <label for="">Email</label></div>
+                    <div class="input-group"><input type="password" id="lock1" placeholder="password" required>
+                        <label for="">password</label></div>
+                <button type="submit" class="btn" onclick="test1()">Login</button>
+                <div class="register-link">
+                    <p>Don't have an account?<a href="#" class="registerbtn-link">Register</a></p>
+            </div>
+            </form>
+        </div>
+        <div class="form-container register">
+            <form action="#" method="post">
+                <h2>Register</h2>
+                    <div class="input-group"><input type="test" id="name" placeholder="username" required>
+                    <label for="">Username</label></div>
+                    <div class="input-group"><input type="email" id="gmail" placeholder="email"  required>
+                        <label for="">email</label></div>
+                    <div class="input-group"><input type="password" id="lock" placeholder="password"  requi red>
+                        <label for="">password</label></div>
+                <button type="submit" class="btn" onclick="test()">Register</button>
+                <div class="register-link">
+                <p>Already have an account?<a href="#" class="loginbtn-link">Login</a></p>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js">
+    </script>
+    <script>
+        function test1(){
+            let email=document.getElementById("name1").value;
+            let  password=document.getElementById("lock1").value;
+            let user_records=new Array();
+             user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+           if(user_records.some((v)=>{
+              return v.email==email && v.password==password
+          })){  
+             alert("Login Successfull");
+      }
+     else{
+        alert("Invalid details");
+        }
+    }
+    </script>
+    <script>
